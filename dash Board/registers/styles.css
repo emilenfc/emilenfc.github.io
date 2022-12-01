@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: #DCDDEA;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+img {
+    width: 200px;
+}
+
+/* ------------------------------------------------------------------------ */
+.admin-dashboard {
+    padding: 1px;
+}
+
+.adash-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.478);
+    padding: 10px 1px;
+    position: fixed;
+    background-color: #DCDDEA;
+    top:0
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+}
+
+.left-header i {
+    font-size: 25px;
+    font-weight: 600;
+    padding: 0 10px;
+}
+.left-header img {
+    width: 190px;
+}
+
+.center-header input {
+    background-color: #ffffff;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 600px;
+    /* position: relative;
+    right: 100px */
+}
+
+/* ---------------------------------------------------------------------------- */
+
+.adash-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+
+}
+
+
+.adash-section-left, .adash-section-right {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+.adash-section-right{
+    margin-left: 400px;
+}
+
+.adash-section-left {
+    padding-right: 80px;
+    width: 30%;
+    position: fixed;
+}
+
+.elements {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+}
+
+
+.new-post {
+    /* border: 2px solid black; */
+    width: 150px;
+    padding: 3px;
+    margin: 20px 25px 10px;
+    border-radius: 50px;
+    color: #FF5722;
+    background-color: #ffffff;
+    text-transform: uppercase;
+}
+.new-post:hover{
+    background-color: #e4c6bc;
+    width: 160px;
+    padding: 1px;
+
+}
+
+.section-action {
+    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.478);
+    border-top: 1px solid rgba(0, 0, 0, 0.478);
+    padding: 20px ;
+    width: 200px;
+}
+
+.action-elm {
+    padding: 6px;
+    width: 200px;
+}
+
+.change-color{
+    color: #FF5722;
+}
+
+.adash-nav {
+    padding: 20px 10px;
+    color: #004678;
+}
+
+.adash-nav span {
+    padding: 10px 0;
+}
+
+/* .colora img{
+    border:2px solid #FF5722;
+    background: #FF5722;
+    
+}                                        tis is to change color of link
+.colora p{
+   color: #FF5722; 
+} */
+
+
+                                    /* 
+                                    for hover */
+
+                                    .elements:hover{
+                                        color: rgb(255, 0, 0);
+                                        cursor:grab;
+                                      
+
+                                    }
+
+
+/* ---------------------------------------------- */
+/* For left side content */
+
+.post-i{
+  
+    width: 40px;
+}
+.elements i{
+    font-size: 40px;
+}
+.post-{
+    width: 50px;
+}
+.elent {
+    font-size: 50px;
+}
+
+
+/* ---------------------------------------------- */
+.adash-section-right {
+    width: 70%;
+}
+
+/* ---------------------------------------------- */
+
+.sregisters{
+    overflow-x:auto;
+}
+h1{
+    color: #FF5722;
+    text-align: center;
+    border-bottom:1px solid #004678;
+}
+table {
+    margin-top: 10px;
+    border-collapse:collapse;
+    border-spacing: 4;
+    width: 100%;
+    background-color: white;
+  }
+  th{
+    color: #004678;
+  }
+  .table-ss{
+    border: 2px solid #004678;
+    border-radius: 40px;
+  }
+th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  a{
+    color: red;
+    text-decoration: none;
+  }
+a:hover{
+    color: red;
+    font-size: large;
+    font-weight: 800;
+  }
+  td:hover{
+    background: black;
+    color: white;
+  }
+  .active{
+    color: red;
+    background-color: #04097B;
+    border-radius: 50px;
+    font-weight: 700;
+    padding:4px 9px 
+  }
+  .inactive{
+    color: red;
+    background-color: #A3A5D3;
+    border-radius: 50px;
+    font-weight: 700;
+    padding:4px 9px 
+  }
+
+
+
+
+  -----------------------------------
+  
+  
+  .new-post:hover{
+    background-color: #e4c6bc;
+    width: 160px;
+    padding: 1px;
+
+}
+
+                                    /* 
+                                    for hover */
+
+                                    .elements:hover{
+                                        color: rgb(255, 0, 0);
+                                        cursor:grab;
+                                      
+
+                                    }
+                                    .left-header i:hover{
+                                        color: blue ;
+                                        font-size: 30px;
+                                    }
+
+                                    .center-header{
+                                        margin-right: 500px;
+                                        border: 2px solid rgb(230, 225, 225);
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        padding: 20px;
+                                        height: 60px;
+                                        border-radius: 50px;
+                                        background-color: white;
+                                        justify-content: flex-start;
+                                        
+                                    }
+                                    .center-header input:focus{
+                                        outline: none;
+                                        /* border: 10px solid green; */
+                                    }
+  
+  
+  ----------------------

@@ -1,0 +1,435 @@
+/* Font Importing */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+/* General Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+    height: auto;
+    background-color: #000000;
+}
+
+img {
+    width: 200px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+.hero-header{
+    /* border: 4px solid green;} */}
+
+
+/* for vavigation */
+
+
+.hero-header{
+    
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px;
+}
+.hero-header ul{
+    display: flex;
+    flex-direction: row;
+}
+.hero-header li{
+    /* border: 4px solid rgb(0, 23, 128); */
+    padding: 2px 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+.hero-header a{
+    color: #000000;
+    text-align: center;
+}
+
+
+
+
+
+/* for blog page */
+
+.container{
+
+    /* border: 5px solid red; */
+    border-radius:20px ;
+    display: flex;
+    margin:auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #D9D9D9;;
+    padding: 30px;
+    max-width: 90%;
+}
+.up-image-and-title{
+    /* border: 7px solid green; */
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+    align-items: center;
+    align-self:flex-start ;
+}
+.up-image-and-title img{
+width: 300px;
+height: auto;
+}
+.body-and-image img{
+    width: 500px;
+    max-height: 600px;
+    display: block;
+
+}
+.title-header{
+    align-self: flex-start;
+}
+.title-header, .comments,.name-date-and-comments{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4px;
+}
+.heading{
+font-weight: 600;
+color: #000000;
+}
+.title-header p{
+color: #133363;
+}
+.viewer, .date-hours,.icon,.for-comments,.comment-1{ /* both  */
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    justify-content: flex-start;
+}
+.fa-solid{
+    width:40px;
+    height: 25px;
+    color: #000000;
+}
+.viewer{
+    align-items: center;
+    gap:2px;
+}
+.viewer img{
+    width: 22px;
+    height: 15px;
+}
+.comm img{
+    width: 25px;
+    height: 25px;
+}
+.comm{
+    display: flex;
+    flex-direction: row;
+    gap:5px
+}
+.viewer p{
+    font-style: normal;
+font-weight: 500;
+font-size: 20px;
+color: #000000;
+}
+
+.text-content{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    margin-top: 30px;
+}
+.text-content p{
+font-family: 'Poppins';
+color: #000000;
+}
+.text-content img{
+    float: right;
+    border: 1px dotted black;
+    width: 500px;
+    height: 300px;
+
+}
+.icon{
+    align-self: flex-start;
+    gap: 10px;
+    padding: 20px;
+}
+.icon p{
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+color: rgba(215, 0, 0, 0.84);
+}
+.fa-light{
+    width:30px;
+    height: 25px;
+    color: #F50000;
+}
+
+
+
+/* for comments */
+
+.for-comments{
+    margin-top: 90px;
+    justify-content: flex-end;
+    gap:200px;
+    width: auto;
+    height: auto;
+}
+.for-comments h1{
+    font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 45px;
+color: #000000;
+
+}
+.comments{
+background-color: #FFFFFF;
+padding: 10px;
+}
+
+.comment-title{
+    align-self: center;
+}
+.date{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-size: 15px;
+line-height: 22px;
+color: #000000;
+}
+
+.comment-1 p{
+font-weight: 300;
+font-size: 15px;
+line-height: 30px;
+color: #000000;
+}
+.comment-1 img{
+    width: 100px;
+    height:80px;
+    border-radius: 10px;
+}
+.comment-1{
+/* border: 2px solid; */
+    align-items: flex-start;
+}
+.date p{
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 00;
+font-size: 10px;
+line-height: 22px;
+color: red;
+}
+.name-date-and-comments{
+    gap:1px
+}
+/* for NEW                       comments */
+.new-messages{
+    border: 2px solid black;
+    background-color: #FFFFFF;
+    padding: 10px;
+    align-self: flex-start;
+    display: grid;
+    gap: 10px;
+}
+.new-messages input, .new-messages textarea{
+    border: 1px solid black;
+    text-align: left;
+    padding-left: 3px;
+    width: 80%;
+    height: 24px;
+}
+
+.new-messages textarea {
+    width: 100%;
+    height: 50px;
+}
+
+.new-messages button{
+    background-color:rgba(215, 0, 0, 0.84); 
+    width: 87px;
+    height: 36px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFFFFF;
+    justify-self: right;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* fot footer */
+ 
+footer {
+    background-image: url("/Assets/Rectangle\ 81.png");
+    /* margin-top: 400px; */
+    height: auto;
+
+}
+
+p,
+h2,
+span,
+a {
+    color: white;
+}
+
+.getInTouch-btn {
+    background-color: transparent;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 269.3px;
+    cursor: grab;
+
+}
+
+.fa-regular,
+.fa-solid {
+    color: #d70000;
+    padding-right: 9px;
+}
+
+.address-contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+    margin: 15px auto;
+}
+
+.address-contact span {
+    text-align: center;
+    padding: 5px 10px;
+}
+
+
+
+
+.connecting {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: -10px;
+}
+
+.connect-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    width: auto;
+}
+
+.fa-brands {
+    color: white;
+    padding-right: 5px;
+}
+
+.connect-form {
+    /* border: 4px solid orange; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-input {
+    display: flex;
+    gap: 10px;
+}
+
+
+input {
+    display: block;
+    border: none;
+    padding: 5px 5px 0;
+}
+
+.form-btn {
+    background-color: red;
+    color: white;
+    width: 130px;
+    height: 30px;
+    margin-left: auto;
+}
+
+.form-textarea {
+    min-height: 70px;
+}
+
+/* for back to top btn */
+.backtop-btn {
+    position: relative;
+    text-align: right;
+    /* border: 5px solid green; */
+}
+
+.backtop-btn img {
+    width: auto;
+    height: auto;
+}
+
+.copyright-footer {
+    width: 100%;
+    text-align: center;
+    background-color: #d9d9d9;
+    font-size: 15px;
+} 
+.copyright-footer p{
+    color: #000000;
+}
