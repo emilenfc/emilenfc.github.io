@@ -19,7 +19,7 @@ img {
     width: 200px;
 }
 
-/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------ */
 .admin-dashboard {
     padding: 1px;
 }
@@ -44,6 +44,7 @@ img {
     font-weight: 600;
     padding: 0 10px;
 }
+
 .left-header img {
     width: 190px;
 }
@@ -54,18 +55,19 @@ img {
     border: none;
     border-radius: 10px;
     padding: 10px;
-    
     width: 600px;
-    /* position: relative;
-    right: 100px */
+    position: relative;
 }
 
-/* ---------------------------------------------------------------------------- */
+a {
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------- */
 
 .adash-content {
     display: flex;
     flex-direction: row;
-
 }
 
 
@@ -102,7 +104,7 @@ img {
 .section-action {
     border-bottom: 1px solid rgba(0, 0, 0, 0.478);
     border-top: 1px solid rgba(0, 0, 0, 0.478);
-    padding: 20px ;
+    padding: 20px;
     width: 200px;
 }
 
@@ -111,8 +113,12 @@ img {
     width: 200px;
 }
 
-.action-elm:first-child {
+.action-elm:first-child p {
     color: #FF5722;
+}
+
+.action-elm p {
+    color: black;
 }
 
 .adash-nav {
@@ -124,10 +130,15 @@ img {
     padding: 10px 0;
 }
 
+.adash-nav p {
+    color: #004678;
+}
+
 /* ---------------------------------------------- */
 .adash-section-right {
     width: 70%;
 }
+
 .post {
     width: 95%;
     padding: 10px 20px;
@@ -143,9 +154,10 @@ img {
 .post-info {
     display: flex;
     align-items: center;
-    gap: 20px;  
+    gap: 20px;
 
 }
+
 .post-info img {
     width: 100px;
 }
@@ -157,6 +169,7 @@ img {
 .post-description span {
     color: #FF5722;
 }
+
 .post-reaction {
     display: flex;
     align-items: center;
@@ -176,16 +189,19 @@ img {
     width: 18px;
 }
 
-.post-i{
-  
+.post-i {
+
     width: 40px;
 }
-.elements i{
+
+.elements i {
     font-size: 40px;
 }
-.post-{
+
+.post- {
     width: 50px;
 }
+
 .elent {
     font-size: 50px;
 }
@@ -194,28 +210,27 @@ img {
 
 
 
-.new-post:hover{
+.new-post:hover {
     background-color: #e4c6bc;
     width: 160px;
     padding: 1px;
 
 }
 
-                                    /* 
+/* 
                                     for hover */
 
-                                    .elements:hover{
-                                        color: rgb(255, 0, 0);
-                                        cursor:grab;
-                                      
+.elements p:hover {
+    color: rgb(255, 0, 0);
+    cursor: grab;
+}
 
-                                    }
-                                    .left-header i:hover{
-                                        color: blue ;
-                                        font-size: 30px;
-                                    }
+.left-header i:hover {
+    color: blue;
+    font-size: 30px;
+}
 
-.center-header{
+.center-header {
     margin-right: 500px;
     border: 2px solid rgb(230, 225, 225);
     display: flex;
@@ -226,9 +241,10 @@ img {
     border-radius: 50px;
     background-color: white;
     justify-content: flex-start;
-    
+
 }
-.center-header input:focus{
+
+.center-header input:focus {
     outline: none;
     /* border: 10px solid green; */
 }

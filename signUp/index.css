@@ -29,11 +29,6 @@ a {
 }
 
 
-.hero-header{
-    /* border: 4px solid green;} */}
-
-
-/* for vavigation */
 
 
 .hero-header{
@@ -176,6 +171,33 @@ a {
     border: none;
     font-size: 25px;
 }
+.placeholder button:hover{
+    width: 150px;
+}
+
+
+/* ---------------------FOR VALIDATION ---------------------*/
+
+  span .errorMsg{
+    /* border: 2px solid green; */
+    color: red;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 9px;
+    text-align: left;
+
+}
+.valid-login{
+align-self: flex-end;
+}
+.valid-login p{
+    font-size: 12px;
+    text-align: center;
+}
+
+
+
 
 /* fot footer */
 footer {

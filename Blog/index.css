@@ -191,7 +191,7 @@ color: #E5E5E5;
 }
 
                                          /* FOR BLOG CONTENTS */
-.contents-container{
+.contents-container, #content{
     /* border: 5px solid; */
     display: flex;
     flex-direction: column;
@@ -243,6 +243,7 @@ color: #E5E5E5;
     font-weight: 700;
     font-size: 25px;
     line-height: 30px;
+    color: #000000;
 }
 .titles{
     font-family: 'Poppins';
@@ -252,11 +253,18 @@ color: #E5E5E5;
     line-height: 15px;
 }
 .titles p{
+      /* border: 6px solid  burlywood; */
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: 20px;
+}
+.titles p span{
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
     line-height: 15px;
-    color: #000000;
+    color: #900000;
 }
 .text-contants{
     display: flex;

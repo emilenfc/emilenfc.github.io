@@ -17,12 +17,12 @@
                 <nav class="hero-nav" id="hero-nav" role="navigation">
                     <ul>
                         <li class="nav-link">
-                            <a href="/Emile Web/index.html" class="nav-link">
+                            <a href="/index.html" class="nav-link">
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a href="/Emile Web/index.html#aboutme" class="nav-link">
+                            <a href="/index.html#aboutme" class="nav-link">
                                 About me
                             </a>
                         </li>
@@ -32,7 +32,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/Emile Web/index.html#port" class="nav-link">
+                            <a href="/index.html#port" class="nav-link">
                                 Portfolio
                             </a>
                         </li>
@@ -51,20 +51,21 @@
             </header>
         </div>
 
-        <div class="container">
-            <div class="up-image-and-title">
+        <div class="container" id="textContant_container">
+            <!-- contenthere -->
+            <!-- <div class="up-image-and-title">
                 <span>
                     <img src="/Assets/Blog/HR-GR8-technology.jpg" alt="image">
                 </span>
                 <div class="title-header">
                     <span class="heading">
                         <h1>
-                            More you did not know about AI and how it will replace human
+                           ${title}
                         </h1>
                     </span>
                     <span class="pa">
                         <p>
-                            Written by: <span style="color: red;">Emile</span>
+                            Written by: <span style="color: red;">${author}</span>
                         </p>
                     </span>
                     <span class="viewer">
@@ -74,60 +75,17 @@
                         </p>
                     </span>
                     <span class="date-hours">
-                        <p>Jun 23,2022</p>
-                        <p>10:15</p>
+                        <p>${time}</p>
                     </span>
                 </div>
             </div>
 
-            <div class="text-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis sapien dictum, eleifend est
-                    non, tincidunt ante.Curabitur finibus malesuada rhoncus. Pellentesque turpis urna, dignissim itae
-                    pulvinar nec, posuere eu leo.
-                <br>
-                <br>
-                In dignissim, est fringilla pharetra pharetra, tortor ante bibendumaugue, a faucibus mi eros sit amet
-                ante. Aenean eu malesuada ex. Nunc tincidunt arcu nisl, inpharetra massa imperdiet a. Sed
-                pulvinar felis ut viverra iaculis. Aliquam in erat aliquet mauris interdum vulputate. Curabitur non
-                tempor nisi, ut interdum est. In varius, augue eu convallis tempus, nisi sem semper arcu, quis
-                placerat enim leo vitae nunc. Curabitur a ex interdum, vestibulum nisl sed, commodo magna.<img src="/Assets/Blog/960x0.jpg" alt="">
-                Ut vehicula erat vel massa venenatis viverra. Etiam et sem nunc. Morbi cursus diam justo, id lobortis
-                leo consectetur in.
-                In dignissim, est fringilla pharetra pharetra, tortor ante bibendumaugue, a faucibus mi eros sit amet
-                ante. Aenean eu malesuada ex. Nunc tincidunt arcu nisl, inpharetra massa imperdiet a. Sed
-                pulvinar felis ut viverra iaculis. Aliquam in erat aliquet mauris interdum vulputate. Curabitur non
-                tempor nisi, ut interdum est. In varius, augue eu convallis tempus, nisi sem semper arcu, quis
-                In dignissim, est fringilla pharetra pharetra, tortor ante bibendumaugue, a faucibus mi eros sit amet
-                ante. Aenean eu malesuada ex. Nunc tincidunt arcu nisl, inpharetra massa imperdiet a. Sed
-                pulvinar felis ut viverra iaculis. Aliquam in erat aliquet mauris interdum vulputate. Curabitur non
-                tempor nisi, ut interdum est. In varius, augue eu convallis tempus, nisi sem semper arcu, quis
-                placerat enim leo vitae nunc. Curabitur a ex interdum, vestibulum nisl sed, commodo magna.
-                Ut vehicula erat vel massa venenatis viverra. Etiam et sem nunc. Morbi cursus diam justo, id lobortis
-                leo consectetur in.
-                Aenean eu malesuada ex. Nunc tincidunt arcu nisl, inpharetra massa imperdiet a. Sed
-                pulvinar felis ut viverra iaculis. Aliquam in erat aliquet mauris interdum vulputate. Curabitur non
-                tempor nisi, ut interdum est. In varius, augue eu convallis tempus, nisi sem semper arcu, quis
-                placerat enim leo vitae nunc. Curabitur a ex interdum, vestibulum nisl sed, commodo magna.
-                Ut vehicula erat vel m
-                
-                <br>
-                In dignissim, est fringilla pharetra pharetra, tortor ante bibendumaugue, a faucibus mi eros sit amet
-                ante. Aenean eu malesuada ex. Nunc tincidunt arcu nisl, inpharetra massa imperdiet a. Sed
-                pulvinar felis ut viverra iaculis. Aliquam in erat aliquet mauris interdum vulputate. Curabitur non
-                tempor nisi, ut interdum est. In varius, augue eu convallis tempus, nisi sem semper arcu, quis
-                placerat enim leo vitae nunc. Curabitur a ex interdum, vestibulum nisl sed, commodo magna.
-                Ut vehicula erat vel massa venenatis viverra. Etiam et sem nunc. Morbi cursus diam justo, id lobortis
-                leo consectetur in.
-                <br>
-                <br>
+            <div class="text-content" id="#">
                 <p>
-                    Curabitur a ex interdum, vestibulum nisl sed, commodo magna.Ut vehicula erat vel massa venenatis
-                    viverra. Etiam et sem nunc. Morbi cursus diam justo, id lobortisleo consectetur in.Curabitur a ex
-                    interdum, vestibulum nisl sed, commodo magna.Ut vehicula erat vel massa venenatis viverra. Etiam et
-                    sem nunc. Morbi cursus diam justo, id lobortisleo consectetur in.
+               
+                ${text}
                 </p>
             </div>
-
 
             <div class="icon">
                 <span class="comm">
@@ -196,7 +154,8 @@
                     <textarea name="text-area" id="text-are" cols="10" rows="3" placeholder="Your message"></textarea>
                     <button>POST</button>
                 </div>
-            </div>
+            </div> -->
+            <!-- content here -->
         </div>
 
 
@@ -274,7 +233,7 @@
 
         </footer>
     </div>
-
+<script src="./app.js"></script>
 </body>
 
 </html>

@@ -69,9 +69,16 @@ img {
     border: none;
     background: none;
     width: auto;
+    height: 30px;
+    font-size: large;
+    font-weight: 800;
+}
+.titles input:focus{
+    outline: none;
 }
 .add-image img{
     width: 150px;
+    cursor: pointer;
 }
 .icons-save-and-publish{
     display: flex;

@@ -20,12 +20,12 @@
                 <nav class="hero-nav" id="hero-nav" role="navigation">
                     <ul>
                         <li class="nav-link">
-                            <a href="/Emile Web/index.html" class="nav-link">
+                            <a href="/index.html" class="nav-link">
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a href="/Emile Web/index.html#aboutme" class="nav-link">
+                            <a href="/index.html#aboutme" class="nav-link">
                                 About me
                             </a>
                         </li>
@@ -35,7 +35,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/Emile Web/index.html#port" class="nav-link">
+                            <a href="/index.html#port" class="nav-link">
                                 Portfolio
                             </a>
                         </li>
@@ -59,17 +59,32 @@
                     <p>Don't have account</p>
                     <a href="/signUp/index.html"><button class="signup">SignUp</button></a>
                 </div>
-                <div class="login-form">
+                <div class="login_form">
                     <div class="choose">
                         <p>Login as USER</p>
                         <p>Log in as ADMIN</p>
                     </div>
-                    <div class="placeholder">
-                        <input type="text" placeholder="Enter email or phone">
-                        <input type="password" placeholder="Enter email or phone" name="pass"><label for="pass">forget
-                            password</label>
-                        <button class="login">Login</button>
-                    </div>
+                    <form class="placeholder" id="loginForm">
+                        <div class="inName">
+                            <input type="text" name="emailLogin" placeholder="Enter youremail" id="input-email">
+                            <span class="errorMsg" id="errorEmail"><!--please enter valid email--></span>
+                        </div>
+                        
+                        <div class="inName">
+              
+                                <input type="password"  name="passwordLogin" placeholder="Enter your password" name="pass" id="input-Password">
+                            <span class="errorMsg" id="errorPassword"><!--please enter your password--></span>
+                        </div>
+            
+                        <div class="inName">
+                            <span class="xxxxxxxxxx">
+                                <span class="forget-ps">forget passsword</span>
+                                <button class="login" id="login-btn">Login</button>
+
+                            </span>
+                            <span class="errorMsg new" id="errorLoginBtn"><!--please fill required info first--></span>
+                        </div>
+                    </form>
 
                 </div>
             </div>
@@ -148,7 +163,7 @@
     
             </footer>
     </div>
-
+<script src="/main.js"></script>
 </body>
 
 </html>
