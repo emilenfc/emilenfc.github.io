@@ -7,11 +7,12 @@ const saveBtn = document.getElementById("savebtn")
 const publishBtn = document.getElementById("publish")
 const Time = new Date().getDate()+ '/' + (new Date().getMonth()+1)+'/' + new Date().getFullYear() +' : ' + new Date().getHours() +':'+ new Date().getMinutes()+':'+ new Date().getSeconds();
 
+// let blog = JSON.parse(localStorage.getItem('blog')) ?? [];
 
+let newUrl = new URL(location.href)
+let image;
 
-let blog = JSON.parse(localStorage.getItem('blog')) ?? [];
 let published_blog = JSON.parse(localStorage.getItem('published_blog'))?? [];
-
 
 
 picture.addEventListener("change",() =>{
@@ -19,22 +20,19 @@ picture.addEventListener("change",() =>{
     fr.readAsDataURL(picture.files[0]);
     fr.addEventListener("load",() =>{
         const url = fr.result;
+        image = url
+        document.querySelector('#img1').src=image
        return url; 
     })
 }
 ) 
 publishBtn.addEventListener("click", (e)=>{
     e.preventDefault()
-    data();
     published();
+    clearBtn()
    
 })
 
-saveBtn.addEventListener("click", (e)=>{
-    e.preventDefault()
-    data();
-    clearBtn()
-})
 let clearBtn =()=>{
     title.value = '';
     author.value = '';
@@ -42,32 +40,40 @@ let clearBtn =()=>{
     picture.value = '';
 }
 
-let data = ()=>{
-    if(title.value == '' || author.value == '' || text.value == ''){
-        console.log("missing data in blog");
-        return;
-    }else{
-        blog.push({
-            title:title.value,
-            // picture:,
-            author:author.value,
-            time: Time,
-            text:text.value,
-            id: Date.now()
-        }); 
-    
-    localStorage.setItem('blog', JSON.stringify(blog))
+let findedOne;
+if(newUrl.hash.replace('#', '')){
+    findedOne = published_blog.find((blog)=>{
+        return blog.id ==newUrl.hash.replace('#', '')
        
-    }
+       })
+       console.log(findedOne)
+       title.value = findedOne.title
+       author.value = findedOne.author
+       text.value = findedOne.text
 }
-
 
 let published = ()=>{
     if(title.value == '' || author.value == '' || text.value == ''){
         return;
     }else{
+        let usedEl = newUrl.hash.replace('#', '');
+        if(usedEl){
+            published_blog.map((blog)=>{
+                if(blog.id == usedEl){
+                    findedOne.title = title.value
+                    findedOne.author= author.value
+                    findedOne.text =text.value 
+                    findedOne.image = image
+                    return findedOne;
+                    
+                }
+                return blog;
+            })
+            localStorage.setItem('published_blog', JSON.stringify(published_blog))
+            return;
+        }
         published_blog.push({
-            // picture:,
+            image,
             title:title.value,
             author:author.value,
             time: Time,
@@ -80,19 +86,6 @@ let published = ()=>{
     }
    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

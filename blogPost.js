@@ -8,7 +8,7 @@ const placeForContent = document.getElementById("placeForContent")
 // const deleteBtn = document.getElementById("deleteBtn")
 
 
-let post = JSON.parse(localStorage.getItem('blog')) || []
+let post = JSON.parse(localStorage.getItem('published_blog')) || []
 toUseBlog()
 function toUseBlog(){
             // use of map to give all mu data number
@@ -25,8 +25,8 @@ function toUseBlog(){
                         </span>
                     </div>
                     <div class="post-reaction">
-                        <img src="/Assets/unpublish.png"  class="post-icon" id ="editBtn" onClick="editBtn(this)">
-                        <img src="/Assets/delete.png"  class="post-icon" id ="deleteBtn" onClick="deleteBtn(this)">
+                        <img src="/Assets/unpublish.png"  class="post-icon" id ="editBtn" onClick="editBtn(${x.id})">
+                        <img src="/Assets/delete.png"  class="post-icon" id ="deleteBtn" onClick="deleteBtn(this, ${y})">
                         <div>
                             <span class="left-reaction-btn">
                                 <img src="/Assets/comments for admin.png" class="post-icon" alt="">
@@ -46,15 +46,14 @@ function toUseBlog(){
             )
         })
     }
-
-let deleteBtn =(e)=>{
+let deleteBtn =(e,post_id)=>{
     e.parentElement.parentElement.remove();
-    post.splice(e.parentElement.parentElement.id, 1)
-
+    post.splice(post_id,1);
+    localStorage.setItem('published_blog', JSON.stringify(post))
+    toUseBlog();
 }   
 let editBtn =((e)=>{
-    
-     let seletedBlog = e.parentElement.parentElement;
-    location.href ="/dash%20Board/New%20POST/index.html"
-    deleteBtn(e)
+    console.log(e)
+    location.href ="/dash%20Board/New%20POST/index.html#"+e
+    // deleteBtn(e)
 })

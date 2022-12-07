@@ -176,6 +176,9 @@ a {
     justify-content: space-between;
     gap: 40px;
 }
+.post-reaction :hover{
+    width: 25px;
+}
 
 .left-reaction-btn {
     display: flex;

@@ -2,150 +2,114 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>blog</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 
 <body>
     <div class="container-main">
-        <div>
-            <header id="hero-header" class="hero-header" role="banner">
-                <img src="/Assets/home page/log emile.png" alt="logo" class="header-logo" />
-                <nav class="hero-nav" id="hero-nav" role="navigation">
-                    <ul>
-                        <li class="nav-link">
-                            <a href="/index.html" class="nav-link">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/index.html#aboutme" class="nav-link">
-                                About me
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link">
-                                Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/index.html#port" class="nav-link">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#footerer" class="nav-link">
-                                Contact
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/login/" class="nav-link">
-                                Sign in
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-
-        <div class="container">
-            <section>
-                <div class="top-articles">
-                    <h1 class="oneh1">TOP ARTICLES</h1>
-                    <div class="best-articles">
-                        <div class="best">
-                            <span>
-                                <img src="/Assets/img-for-blog.png" alt="image">
-                            </span>
-                            <span class="art">
-                                <h2>Importance and the use of artificial intelligence</h2>
-                                <p>Jun 5, 2021</p>
-                            </span>
-                        </div>
-                        <div class="best">
-                            <span>
-                                <img src="/Assets/img-for-blog.png" alt="image">
-                            </span>
-                            <span class="art">
-                                <h2>Check your self</h2>
-                                <p>May 5, 2021</p>
-                            </span>
-                        </div>
-                        <div class="best">
-                            <span>
-                                <img src="/Assets/img-for-blog.png" alt="image">
-                            </span>
-                            <span class="art">
-                                <h2>Importance of running software design </h2>
-                                <p>Dec 11, 2020</p>
-                            </span>
-                        </div>
-                        <div class="best">
-                            <span>
-                                <img src="/Assets/img-for-blog.png" alt="image">
-                            </span>
-                            <span class="art">
-                                <h2>Features of good Blog</h2>
-                                <p>Feb 7, 2022</p>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="subscribe">
-                        <h1>GET WEEKLY UPDATES</h1>
-                        <input type="email" placeholder="Enter your email">
-                        <button>SUBSCRIBE</button>
-                    </div>
-                </div>
-                <div class="contents-container">
-
-
-
-
-
-                    <!-- fffffffffffffffffoooooooooooorrrrrrrrrrrr -->
-
-                    <div class="search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="search posts" />
-                        <span class="great"><i class="fa-sharp fa-solid fa-xmark"></i></span>
-
-                    </div>
-                    <!-- fffffffffffffffffoooooooooooorrrrrrrrrrrr -->
-
-
-
-
-
-                    <div id="content">
-
-                    </div>
-                    <div class="subscribe">
-                        <h2>I hope you enjoyed those articles , it’s time to subscribe for any UPDATES, don’t miss😊
-                        </h2>
-                        <input type="email" placeholder="Enter your email">
-                        <button>SUBSCRIBE</button>
-                    </div>
-
-                </div>
-                <div></div>
-            </section>
-
-           
-            <div class="next-back-arrow">
-                <i class="fa-regular fa-circle-caret-left"></i>
-                <i class="fa-regular fa-circle-caret-right"></i>
+        <header id="hero-header" class="hero-header" role="banner">
+            <img src="/Assets/home page/log emile.png" alt="logo" class="header-logo" />
+            <nav class="hero-nav" id="hero-nav" role="navigation">
+                <ul>
+                    <li class="nav-link">
+                        <a href="/index.html" class="nav-link"> Home </a>
+                    </li>
+                    <li>
+                        <a href="/index.html#aboutme" class="nav-link"> About me </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link"> Blog </a>
+                    </li>
+                    <li>
+                        <a href="/index.html#port" class="nav-link"> Portfolio </a>
+                    </li>
+                    <li>
+                        <a href="#footerer" class="nav-link"> Contact </a>
+                    </li>
+                    <li>
+                        <a href="/login/" class="nav-link"> Sign in </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- -------------------------------------------------- -->
+        <div class="search-bar">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="search posts" />
+                <span class="great"><i class="fa-sharp fa-solid fa-xmark"></i></span>
             </div>
-
         </div>
-
+        <!-- ---------------------------------------------------- -->
+        <div class="container">
+            <div class="top-articles">
+                <h1 class="oneh1">TOP ARTICLES</h1>
+                <div class="best-articles">
+                    <div class="best">
+                        <span>
+                            <img src="/Assets/img-for-blog.png" alt="image" />
+                        </span>
+                        <span class="art">
+                            <h2>Importance and the use of artificial intelligence</h2>
+                            <p>Jun 5, 2021</p>
+                        </span>
+                    </div>
+                    <div class="best">
+                        <span>
+                            <img src="/Assets/img-for-blog.png" alt="image" />
+                        </span>
+                        <span class="art">
+                            <h2>Check your self</h2>
+                            <p>May 5, 2021</p>
+                        </span>
+                    </div>
+                    <div class="best">
+                        <span>
+                            <img src="/Assets/img-for-blog.png" alt="image" />
+                        </span>
+                        <span class="art">
+                            <h2>Importance of running software design</h2>
+                            <p>Dec 11, 2020</p>
+                        </span>
+                    </div>
+                    <div class="best">
+                        <span>
+                            <img src="/Assets/img-for-blog.png" alt="image" />
+                        </span>
+                        <span class="art">
+                            <h2>Features of good Blog</h2>
+                            <p>Feb 7, 2022</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="subscribe">
+                    <h1>GET WEEKLY UPDATES</h1>
+                    <input type="email" placeholder="Enter your email" />
+                    <button>SUBSCRIBE</button>
+                </div>
+            </div>
+            <!-- ----------------------------------------------------- -->
+            <div class="contents-container">
+                <div id="content"></div>
+                <div class="subscribe">
+                    <h2>
+                        I hope you enjoyed those articles , it’s time to subscribe for
+                        any UPDATES, don’t miss😊
+                    </h2>
+                    <input type="email" placeholder="Enter your email" />
+                    <button>SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
 
         <footer class="footer" id="footerer">
             <button class="getInTouch-btn">
-                <img src="/Assets/GET IN TOUCH.png">
+                <img src="/Assets/GET IN TOUCH.png" />
             </button>
 
             <div class="address-contact">
@@ -155,13 +119,15 @@
                 </span>
                 <span>
                     <i class="fa-solid fa-phone"></i>
-                    <p>+250 783 544 364 <br> +250 736 854 354</p>
+                    <p>
+                        +250 783 544 364 <br />
+                        +250 736 854 354
+                    </p>
                 </span>
                 <span>
                     <i class="fa-regular fa-envelope"></i>
                     <p>iyaemile4@gmail.com</p>
                 </span>
-
             </div>
             <div class="connecting">
                 <div class="connect-item">
@@ -190,17 +156,16 @@
 
                 <div class="connect-item">
                     <h2>Send Me a Message</h2>
-                    <form class="connect-form ">
+                    <form class="connect-form">
                         <div class="form-input">
                             <span>
-                                <Label for="name">Name:</Label>
-                                <input type="text" placeholder="Your full name" name="name">
+                                <label for="name">Name:</label>
+                                <input type="text" placeholder="Your full name" name="name" />
                             </span>
                             <span>
                                 <label for="email">Email:</label>
-                                <input type="email" placeholder="Enter your email" name="email">
+                                <input type="email" placeholder="Enter your email" name="email" />
                             </span>
-
                         </div>
                         <textarea placeholder="Your message here" class="form-textarea"></textarea>
                         <button class="form-btn">SEND A MESSAGE</button>
@@ -208,16 +173,15 @@
                 </div>
             </div>
             <div class="backtop-btn">
-                <a href="#"><img src="/Assets/home page/icon footer.png"></a>
+                <a href="#"><img src="/Assets/home page/icon footer.png" /></a>
             </div>
 
             <div class="copyright-footer">
                 <p>&copy;2022 Emile, Alright reserved</p>
             </div>
-
         </footer>
     </div>
-<script src="../blog.js"></script>
+    <script src="../blog.js"></script>
 </body>
 
 </html>

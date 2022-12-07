@@ -15,7 +15,7 @@ function publishing(){
      </div>
      <div class="text-contants">
              <p>${localStoragePublishedData[i].text} ...</p>
-             <img src="/Assets/Blog/pic 3.png" alt="">
+             <img src="${localStoragePublishedData[i]?.image}" alt="">
   
      </div>
      <div class="likecomments-readmore">
