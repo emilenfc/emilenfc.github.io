@@ -77,6 +77,7 @@ console.log(data)
                     <img src="/Assets/share.png" id="share" alt="#">
                 </span>
             </div>
+            
 
             <div class="for-comments">
                 <div class="comments">
