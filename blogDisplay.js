@@ -29,7 +29,7 @@ const fetchBlogData = async () => {
                         <span class="viewer">
                             <img src="/Assets/eye.png" alt="#">
                             <p>
-                                12
+                                1
                             </p>
                         </span>
                         <span class="date-hours">
