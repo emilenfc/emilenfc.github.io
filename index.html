@@ -51,6 +51,11 @@
                                 Sign in
                             </a>
                         </li>
+                        <li>
+                            <a href="#" class="nav-link" id="logout">
+                                LogOut
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <div class="menu-btn">
@@ -304,21 +309,21 @@
 
                 <div class="connect-item">
                     <h2>Send Me a Message</h2>
-                    <form class="connect-form ">
+                    <div class="connect-form ">
                         <div class="form-input">
                             <span>
                                 <Label for="name">Name:</Label>
-                                <input type="text" placeholder="Your full name" name="name">
+                                <input type="text" placeholder="Your full name" id="na_me">
                             </span>
                             <span>
                                 <label for="email">Email:</label>
-                                <input type="email" placeholder="Enter your email" name="email">
+                                <input type="email" placeholder="Enter your email" id="email" >
                             </span>
 
                         </div>
-                        <textarea placeholder="Your message here" class="form-textarea"></textarea>
-                        <button class="form-btn">SEND A MESSAGE</button>
-                    </form>
+                        <textarea placeholder="Your message here" class="form-textarea" id="textmessage"></textarea>
+                        <button class="form-btn" id="msgbtn">SEND A MESSAGE</button>
+                    </div>
                 </div>
             </div>
             <div class="backtop-btn">
@@ -331,7 +336,9 @@
 
         </footer>
     </div>
-
+    <script src="main.js">
+      
+    </script>
 </body>
 
 </html>

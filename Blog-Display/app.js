@@ -1,24 +1,44 @@
-let comments_El=JSON.parse(localStorage.getItem('comments_El'))?? [];
 
-const blogId = (new URL(location)).hash.replace("#","")
-const localStoragePublishedData = JSON.parse(localStorage.getItem('published_blog'))
-console.log(localStoragePublishedData.title)
-const {title,author,id,time, picture, text} = localStoragePublishedData.find(blog => blog.id == blogId)
-
-textContant = `
+const blogId = localStorage.getItem("clicked_blog_id")
+console.log(blogId)
+let checkId = (post_id) => {
+    let checkUrl = 'http://localhost:4000/blog/' + post_id;
+    const token = localStorage.getItem('AdminToken');
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    };
+    fetch(checkUrl, options)
+        .then((res) => {
+            if (!res.ok) {
+                throw Error(res.status);
+            }
+            return res.json();
+        }).then((data) => {
+            if (data.message === 'blog not found') {
+                console.log('This _id not exists in the database')
+            } else {
+                console.log('This _id exists in the database')
+                // console.log(data.data)
+                let x = data.data
+console.log(data)
+                textContant = `
 <div class="up-image-and-title">
                 <span>
-                    <img src="/Assets/Blog/HR-GR8-technology.jpg" alt="image">
+                    <img src=${x.image} alt="image">
                 </span>
                 <div class="title-header">
                     <span class="heading">
                         <h1>
-                           ${title}
+                           ${x.title}
                         </h1>
                     </span>
                     <span class="pa">
                         <p>
-                            Written by: <span style="color: red;">${author}</span>
+                            Written by: <span style="color: red;">${x.author}</span>
                         </p>
                     </span>
                     <span class="viewer">
@@ -28,7 +48,7 @@ textContant = `
                         </p>
                     </span>
                     <span class="date-hours">
-                        <p>${time}</p>
+                        <p>${x.Time}</p>
                     </span>
                 </div>
             </div>
@@ -36,117 +56,210 @@ textContant = `
             <div class="text-content" id="#">
                 <p>
                
-                ${text}
+                ${x.text}
                 </p>
             </div>
 
             <div class="icon">
-                <span class="comm">
-                    <img src="/Assets/comment.png" alt="#">
-                    <p>3</p>
+                <span class="comm" id="N_comments">
+                <img src="/Assets/comment.png" alt="#">
+                             <p>${x.blog_comments.length}</p>
+                </span>
+                <span class="comm" >
+                <img src="/Assets/like.png" alt="#" id="like">
+                <p id ="N_likes">${x.likes.length}</p>
                 </span>
                 <span class="comm">
-                    <img src="/Assets/like.png" alt="#">
-                    <p>20</p>
-                </span>
-                <span class="comm">
-                    <img src="/Assets/unlike.png" alt="#">
+                    <img src="/Assets/unlike.png" alt="#" id="unlike">
                     <p>1</p>
                 </span>
                 <span class="comm">
-                    <img src="/Assets/share.png" alt="#">
+                    <img src="/Assets/share.png" id="share" alt="#">
                 </span>
             </div>
 
             <div class="for-comments">
                 <div class="comments">
-                               // here is place for comment
+                <h1 class="comment-title">
+                Comments
+                </h1>
                 </div>
                 <div class="new-messages">
                     <h1>
                         Leave your comment
                     </h1>
                     <input id="comenterName" type="text" placeholder="Your name">
-                    <input id="comenterEmail" type="email" placeholder="Your email">
                     <textarea id="comentTextArea" name="text-area" id="text-are" cols="10" rows="3" placeholder="Your message"></textarea>
                     <button id="button_coments">POST</button>
                 </div>
             </div>
 `
-document.getElementById("textContant_container").innerHTML = textContant
+                document.getElementById("textContant_container").innerHTML = textContant
+                //for getting comments
+               
+                
+                let like = document.getElementById("like")
+                let cometerName = document.getElementById("comenterName")
+                let comentFromTextArea = document.getElementById("comentTextArea")
+                let button_coments = document.getElementById("button_coments")
+                // let commets=JSON.parse(localStorage.getItem('comments'))?? [];
+                let N_comments = document.getElementById("N_comments")
+                let N_likes = document.getElementById("N_likes")
 
-
-
-//for getting comments
-
-let cometerName = document.getElementById("comenterName")
-let comenterEmail = document.getElementById("comenterEmail")
-let comentFromTextArea = document.getElementById("comentTextArea")
-let button_coments = document.getElementById("button_coments")
-// let commets=JSON.parse(localStorage.getItem('comments'))?? [];
-
-let displayComments = document.querySelector(".comments")
-
-console.log(displayComments)
-button_coments.addEventListener("click",(e)=>{
-    e.preventDefault()
-    let date_el = new Date().getDate()+ '/' + (new Date().getMonth()+1)+'/' + new Date().getFullYear();
-    let Time_el =new Date().getHours() +' : '+ new Date().getMinutes()+' : '+ new Date().getSeconds();
-    let commentName = cometerName.value
-    let commenterEmail = comenterEmail.value
-    let commenttext =comentFromTextArea.value
-    let comentHashUrl = new URL(location.href)
-    let hash_el =comentHashUrl.hash.replace('#','')
-    comments_El.push({
-        date_el,
-        Time_el,
-        commentName,
-        commenterEmail,
-        commenttext,
-    })
-    localStorage.setItem('comments_El',JSON.stringify(comments_El))
-})
-function reset(){
-    cometerName.value =""
-    comenterEmail.value=''
+                let share = document.getElementById("share")
+share.addEventListener("click", sharePage)
+function sharePage() {
+    if (navigator.share) {
+        let share = document.getElementById("share")
+        share.addEventListener("click", sharePage)
+        function sharePage() {
+            navigator.share({
+                url: window.location.href
+            })
+                .then(() => console.log('Link was shared successfully'))
+                .catch(error => console.log('Error sharing link: ', error));
+        }
+    } else {
+        let share = document.getElementById("share")
+        share.addEventListener("click", shareLinkedIn)
+        function shareLinkedIn() {
+            let linkedInShareLink = `https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`;
+            window.open(linkedInShareLink, '_blank');
+        }
+    }
+    
 }
 
-function displayAllcomments(comments){
-    let comments_html ='';
-for(let i = 0; i<comments.length;i++){
-comments_html +=`
-<h1 class="comment-title">
-Comments
-</h1>
+
+                function displayAllcomments(blogid) {
+                    let checkUrl = 'http://localhost:4000/blogComments/' + blogid;
+                    const token = localStorage.getItem('AdminToken');
+                    const options = {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        }
+                    };
+                    fetch(checkUrl, options)
+
+                        .then((res) => {
+                            let mess = res.json()
+                            return mess;
+                        }).then((data) => {
+                            data.comments.map((x) => {
+                                return (
+                                    displayComments.innerHTML += `
+           
 <div class="comment-1">
 <span>
     <img src="/Assets/Blog/blank-head-profile-pic-for-a-man.jpg" alt="#">
 </span>
 <span class="name-date-and-comments">
     <h1>
-        ${comments[i].commentName}
+        ${x.Names}
     </h1>
     <span class="date">
-        <p>${comments[i].date_el}</p>
-        <p>04${comments[i].Time_el}</p>
+        <p>${x.date}</p>
+        <p>04${x.Time}</p>
     </span>
     <p>
-        ${comments[i].commenttext}
+        ${x.Comment}
     </p>
 </span>
 </div>
-`
-}
-return comments_html;
+  `
+                                )
+                            })
+                        })
+                } displayAllcomments(blogId)
+
+
+                function reset() {
+                    cometerName.value = "";
+                    comentFromTextArea.value = ""
+                }
+                let displayComments = document.querySelector(".comments")
+
+                console.log(displayComments)
+
+                button_coments.addEventListener("click", async () => {
+
+                    let date = new Date().getDate() + '/' + (new Date().getMonth() + 1) + '/' + new Date().getFullYear();
+                    let Time = new Date().getHours() + ' : ' + new Date().getMinutes() + ' : ' + new Date().getSeconds();
+                    let Names = cometerName.value
+                    let Comment = comentFromTextArea.value
+                    let comment = {
+                        date,
+                        Time,
+                        Names,
+                        Comment
+                    }
+                    console.log(comment)
+                    const token = localStorage.getItem("AdminToken");
+                    const createComment = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify(comment)
+                    };
+                    console.log(createComment)
+                    fetch('http://localhost:4000/comments/' + blogId, createComment)
+                        .then(async (data) => {
+                            const res = await data.json()
+                            alert(res.message ="login first");
+                            reset()
+
+                            if (!data.ok) {
+                                throw Error(data.status);
+                            }
+
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                    await displayAllcomments(blogId)
+                })
+
+
+
+                like.addEventListener("click", (e) => {
+                    console.log("emile click me")
+                    e.preventDefault()
+                    console.log("liked by emile")
+
+                    const token = localStorage.getItem("AdminToken");
+                    const createlike = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+
+                    };
+                    fetch('http://localhost:4000/like/' + blogId, createlike)
+                        .then(async (data) => {
+                            const res = await data.json()
+                            console.log(data)
+                            alert(res.message);
+
+console.log(res.message)
+                            if (data.status === 200) {
+                                console.log("Ilove you")
+                                // throw Error(data.status);
+                            }
+
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                })
+            }
+        }).catch((err) => {
+            console.log(err);
+        })
 }
 
-displayComments.innerHTML = displayAllcomments(comments_El);
+checkId(blogId)
 
-// let match_blog;
-// if(comentHashUrl.hash.replace('#', '')){
-//     match_blog = published_blog.filter((blog)=>{
-//         return blog.id ==hash_el.hash.replace('#', '')
-       
-//        })
-//        console.log(match_blog)
-// }
+

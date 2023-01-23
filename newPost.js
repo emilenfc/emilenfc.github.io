@@ -12,7 +12,10 @@ const Time = new Date().getDate()+ '/' + (new Date().getMonth()+1)+'/' + new Dat
 let newUrl = new URL(location.href)
 let image;
 
-let published_blog = JSON.parse(localStorage.getItem('published_blog'))?? [];
+//let published_blog = JSON.parse(localStorage.getItem('published_blog'))?? [];
+
+
+
 
 
 picture.addEventListener("change",() =>{
@@ -26,95 +29,215 @@ picture.addEventListener("change",() =>{
     })
 }
 ) 
-publishBtn.addEventListener("click", (e)=>{
-    e.preventDefault()
-    published();
-    clearBtn()
-   
-})
 
+publishBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    createBlog(title.value, author.value, image, text.value, Time);
+    // clearBtn();
+});
+
+let createBlog = (title, author, image, text, Time) => {
+    let blog = {
+        title,
+        author,
+        image,
+        text,
+        Time
+    }
+    console.log(image)
+    const token = localStorage.getItem('AdminToken');
+    const createBlog = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(blog)
+    };
+    console.log(createBlog)
+    fetch('http://localhost:4000/createBlog', createBlog)
+    .then(async (data) => {
+   const res = await data.json()
+        console.log(res);
+        if(res.statusCode === 201){
+            alert(res.message)
+            clearBtn()
+        }else if({Error:400}){
+            alert("please all input are required")
+            
+        }
+        if (!data.ok) {
+            throw Error(data.status);
+        }
+        
+    }).catch(err => {
+        console.log(err);
+    });
+}
 let clearBtn =()=>{
     title.value = '';
     author.value = '';
     text.value= '';
-    picture.value = '';
+    if (picture.value) {
+        picture.value = null;
+        document.querySelector('#img1').src = '';
+    }
+    //location.href = "/dash%20Board/Admin%20Dash%20-%20Post/index.html"; 
 }
 
-let findedOne;
-if(newUrl.hash.replace('#', '')){
-    findedOne = published_blog.find((blog)=>{
-        return blog.id ==newUrl.hash.replace('#', '')
-       
-       })
-       console.log(findedOne)
-       title.value = findedOne.title
-       author.value = findedOne.author
-       text.value = findedOne.text
-}
 
-let published = ()=>{
-    if(title.value == '' || author.value == '' || text.value == ''){
-        return;
-    }else{
-        let usedEl = newUrl.hash.replace('#', '');
-        if(usedEl){
-            published_blog.map((blog)=>{
-                if(blog.id == usedEl){
-                    findedOne.title = title.value
-                    findedOne.author= author.value
-                    findedOne.text =text.value 
-                    findedOne.image = image
-                    return findedOne;
-                    
-                }
-                return blog;
+
+
+const updateBlog = ()=>{
+
+    const blogTitle = localStorage.getItem("blogTitle") ;
+    const blogAuthor= localStorage.getItem("blogAuthor");
+    const blogText = localStorage.getItem("blogText");
+    console.log(blogAuthor)
+
+    if(blogTitle !== null){
+    title.value = blogTitle
+    console.log(title)
+    } else{
+       return false
+    }
+    if(blogAuthor !== null){
+        author.value = blogAuthor;
+    
+    } else{
+        alert("nothing to update")
+    }
+    if(blogText !== null){
+        text.value = blogText
+    }
+    else{
+        alert("nothing to update")
+    }
+    }
+    updateBlog()
+
+    const blogId = localStorage.getItem("blogID")
+
+    let patch = (post_id) => {
+        // Get the updated data from the input fields
+        let updatedTitle = title.value;
+        let updatedAuthor = author.value;
+        let updateText = text.value;
+        const token = localStorage.getItem('AdminToken');
+        const options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                title: updatedTitle,
+                author: updatedAuthor,
+                text: updateText
             })
-            localStorage.setItem('published_blog', JSON.stringify(published_blog))
-            return;
-        }
-        published_blog.push({
-            image,
-            title:title.value,
-            author:author.value,
-            time: Time,
-            text:text.value,
-            id: Date.now()
+        };
+        fetch(`http://localhost:4000/updateBlog/${post_id}`, options)
+        .then((res) => {
+            
+            if (!res.ok) {
+                alert("Nothing to update")
+                throw Error(res.status);
+            }
+            return res.json();
+        }).then((data) => {
+            alert(data.message)
+            // update the blog on the front-end
+            console.log(data);
+        }).catch((err) => {
+            console.log(err);
         });
+    }
+    saveBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        patch(blogId)
+         localStorage.removeItem("blogTitle");
+         localStorage.removeItem("blogAuthor");
+         localStorage.removeItem("blogText");
+         localStorage.removeItem("blogID");
+         clearBtn();
+       
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// publishBtn.addEventListener("click", (e)=>{
+//     e.preventDefault()
+//     published();
+//     clearBtn()
+   
+// })
+
+
+// let findedOne;
+// if(newUrl.hash.replace('#', '')){
+//     findedOne = published_blog.find((blog)=>{
+//         return blog.id ==newUrl.hash.replace('#', '')
+       
+//        })
+//        console.log(findedOne)
+//        title.value = findedOne.title
+//        author.value = findedOne.author
+//        text.value = findedOne.text
+// }
+
+// let published = ()=>{
+//     if(title.value == '' || author.value == '' || text.value == ''){
+//         return;
+//     }else{
+//         let usedEl = newUrl.hash.replace('#', '');
+//         if(usedEl){
+//             published_blog.map((blog)=>{
+//                 if(blog.id == usedEl){
+//                     findedOne.title = title.value
+//                     findedOne.author= author.value
+//                     findedOne.text =text.value 
+//                     findedOne.image = image
+//                     return findedOne;
+                    
+//                 }
+//                 return blog;
+//             })
+//             localStorage.setItem('published_blog', JSON.stringify(published_blog))
+//             return;
+//         }
+//         published_blog.push({
+//             image,
+//             title:title.value,
+//             author:author.value,
+//             time: Time,
+//             text:text.value,
+//             id: Date.now()
+//         });
        
     
-    localStorage.setItem('published_blog', JSON.stringify(published_blog))
-    }
+//     localStorage.setItem('published_blog', JSON.stringify(published_blog))
+//     }
    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// }
 
 
 

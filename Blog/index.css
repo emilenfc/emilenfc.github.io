@@ -282,6 +282,7 @@ a {
 }
 
 .read:hover {
+    cursor: grab;
     color: #ff0000;
 
 }

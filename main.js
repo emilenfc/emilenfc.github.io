@@ -1,4 +1,16 @@
 
+// for user send message
+let names = document.getElementById("na_me")
+let emails = document.getElementById("email")
+let messageS = document.getElementById("textmessage")
+let messageBtn = document.getElementById("msgbtn")
+
+
+
+
+
+let logout = document.getElementById("logout")
+
 // For login-form page
 
 let login_btn = document.getElementById("login-btn");
@@ -7,7 +19,7 @@ let password_Error = document.getElementById("errorPassword")
 let login_Error = document.getElementById("errorLoginBtn")
 
 const login_form = document.getElementById("loginForm")
-
+const adminLogin_form = document.getElementById("adminloginForm")
 //for signUp-form page
 const signUp_Form = document.getElementById("signUp_Form");
 
@@ -78,64 +90,216 @@ const signUP_btn_error = document.getElementById("signUp-error")
 // }
 //--------------------------------------------------------- work one
 //signUp function
-const Account = JSON.parse(localStorage.getItem('Account')) ?? [];
 
-let createAccount = (firstName, secondName, phone, email, password, confirmPassword) => {
-    
+
+
+fetch('http://localhost:4000/')
+.then((res)=>{
+    const jsonData =res.json();
+    jsonData.then((data)=>{
+        console.log(data.message)
+    })
+})
+//const Account = JSON.parse(localStorage.getItem('Account')) ?? [];
+
+let createAccount =async  (firstName, secondName, phone, email, password) => {
+    let mine = {
+        firstName,secondName,phone,email,password
+    }
     if (firstName.value == '' || secondName.value == '' || phone == '' || email == '' ||
-        password == '' || confirmPassword == '') {
+        password == '') {
         alert("there is missing data");
         return false;
         //here I'm going to save all my data in localStorage
     } 
-   
-   
-    for (let person of Account) {
-        // console.log(person.email, emailLogin, person.password, passwordLogin)
-        if (person.email == email) {
-            email.innerHTML ="email found"
-            alert("user email alread exist")
-            return;
-        }}
-    Account.push({
-        firstName,
-        secondName,
-        phone,
-        email,
-        password,
-        id: Date.now()
-    });
-    localStorage.setItem('Account', JSON.stringify(Account))
-    window.location.href = "/index.html"
+
+
+    const signUP = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+
+        },
+        body: JSON.stringify(mine),
+        };
+        console.log(signUP)
+     fetch('http://localhost:4000/signUp', signUP)
+     .then(async (data) => {
+        const res = await data.json()
+
+        console.log(res)
+
+        if(res.statusCode === 200){
+            // element.innerHTML = res.message
+            location.href = "/index.html"
+        }
+        if (!data.ok) {
+            
+          throw Error(data.status);
+         }
+        //console.log(data.json());
+        }).then(signUP => {
+        console.log(signUP);
+        }).catch(e => {
+        console.log(e);
+        });
 }
+
 /////////------Create account button or Sign up 
 signUp_Form ?.addEventListener("submit", (e) => {
     e.preventDefault();
-    const { firstName, secondName, phone, email, password, confirmPassword } = signUp_Form
+    const { firstName, secondName, phone, email, password } = signUp_Form
 
-    createAccount(firstName.value, secondName.value, phone.value, email.value, password.value)
+      createAccount(firstName.value, secondName.value, phone.value, email.value, password.value)
     
 })
 
-let login = (emailLogin, passwordLogin) => {
-    if (emailLogin == '' || passwordLogin == '') {
-        alert("there is missing data");
-        return false;
+let login = (email, password) => {
+    let mine = {
+        email, password
     }
-    else {//all remaining user the system will check in the localstorage
-        for (let person of Account) {
-            if (person.email == emailLogin && person.password == passwordLogin) {
-                person.admin && (location.href = '/dash%20Board/Admin%20Dash%20-%20Post/index.html')
-                !person.admin && (window.location.href = '/index.html');
-                break;
-            } else {
-                alert("user not found")
-            }
+
+    const signIN = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+
+        },
+        body: JSON.stringify(mine),
+        };
+        console.log(signIN)
+     fetch('http://localhost:4000/login', signIN)
+     .then(async (data) => {
+        const res = await data.json()
+
+        console.log(res)
+
+        if(res.statusCode === 200){
+            localStorage.setItem('AdminToken', res.userToken)
+            localStorage.setItem("user",res.Id_user)
+            // element.innerHTML = res.message
+            location.href = "/index.html"
         }
-    }
+        console.log(data.token)
+        if (!data.ok) {
+            
+          throw Error(data.status);
+         }
+        //console.log(data.json());
+        }).catch(err => {
+        console.log(err);
+        });
+
 }
 login_form?.addEventListener("submit", (e) => {
     e.preventDefault();
     const { emailLogin, passwordLogin } = login_form
     login(emailLogin.value, passwordLogin.value)
+    
 })
+
+
+let adminlogin = (email, password) => {
+    let mine = {
+        email, password
+    }
+    const signIN = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+
+        },
+        body: JSON.stringify(mine),
+        };
+        console.log(signIN)
+     fetch('http://localhost:4000/adminLogin', signIN)
+     .then(async (data) => {
+        const res = await data.json()
+
+        console.log(res)
+
+        if(res.statusCode === 200){
+            // element.innerHTML = res.message
+            localStorage.setItem('AdminToken', res.adminToken)
+            location.href = "/dash%20Board/Admin%20Dash%20-%20Post/index.html"
+        }else if(
+          res.errors
+        ){
+            alert("You are not any admin, Login as User")
+        }
+   
+        if (!data.ok) {
+            
+          throw Error(data.status);
+         }
+        //console.log(data.json());
+        }).catch(err => {
+        console.log(err);
+        });
+
+}
+adminLogin_form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const { emailLogin, passwordLogin } = adminLogin_form
+    adminlogin(emailLogin.value, passwordLogin.value)
+})
+
+// for logOUT
+
+logout.addEventListener("dblclick", function(e){
+    e.preventDefault()
+    localStorage.removeItem("AdminToken")
+    localStorage.removeItem("user")
+    alert("loged Out successfull")
+    location.href= "/login/index.html"
+     })
+
+
+     messageBtn.addEventListener("click",(e)=>{
+        e.preventDefault();
+        console.log("clicked by Emile")
+        let date = new Date().getDate() + '/' + (new Date().getMonth() + 1) + '/' + new Date().getFullYear();
+        let Time = new Date().getHours() + ' : ' + new Date().getMinutes() + ' : ' + new Date().getSeconds();
+       let name= names.value
+         let email= emails.value
+           let message =messageS.value
+           
+        let user_message = {
+            date,
+            Time,
+            name,
+            email,
+            message
+        }
+    
+        const createMessage = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user_message)
+        };
+        console.log(createMessage.body)
+        fetch('http://localhost:4000/sendMessage', createMessage)
+            .then(async (data) => {
+                //console.log(data)
+                const res = await data.json()
+                names.value =''
+                emails.value =''
+                messageS.value ='';
+    
+                alert(res.message);
+                message
+    
+                if (!data.ok) {
+                  
+                    throw Error(data.status);
+                }
+    
+            }).catch(err => {
+                console.log(err);
+            });
+    
+    })
+    
+    
