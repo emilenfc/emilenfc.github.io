@@ -44,7 +44,7 @@ console.log(data)
                     <span class="viewer">
                         <img src="/Assets/eye.png" alt="#">
                         <p>
-                            12
+                            1
                         </p>
                     </span>
                     <span class="date-hours">
@@ -71,7 +71,7 @@ console.log(data)
                 </span>
                 <span class="comm">
                     <img src="/Assets/unlike.png" alt="#" id="unlike">
-                    <p>1</p>
+                    <p>0</p>
                 </span>
                 <span class="comm">
                     <img src="/Assets/share.png" id="share" alt="#">
