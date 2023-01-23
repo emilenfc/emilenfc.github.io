@@ -3,7 +3,7 @@ const deleteAll = document.getElementById("deleteall")
 
 
 function messages() {
-    let checkUrl = 'http://localhost:4000/getSubscriber';
+    let checkUrl = 'https://good-red-cougar-hem.cyclic.app/getSubscriber';
     const token = localStorage.getItem('AdminToken');
     const options = {
         method: 'GET',
@@ -47,7 +47,7 @@ function messages() {
 let deleteBtn = (e,post_id) => {
     e.target.parentElement.parentElement.parentElement.remove(); 
    
-    let deleteUrl = 'http://localhost:4000/deleteOneSubscriber/' + post_id;
+    let deleteUrl = 'https://good-red-cougar-hem.cyclic.app/deleteOneSubscriber/' + post_id;
     const token = localStorage.getItem('AdminToken');
     const options = {
         method: 'DELETE',
@@ -83,7 +83,7 @@ let deleteBtn = (e,post_id) => {
         // e.preventDefault();
         console.log("cliked by emile")
       
-        let deleteUrl = 'http://localhost:4000/dltAllsubscribers';
+        let deleteUrl = 'https://good-red-cougar-hem.cyclic.app/dltAllsubscribers';
         const token = localStorage.getItem('AdminToken');
         if(confirm("Are you sure you want to delete all subscribers?")) {
             

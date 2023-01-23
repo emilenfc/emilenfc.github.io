@@ -7,7 +7,7 @@ const placeForContent = document.getElementById("placeForContent")
 // const editBtn = document.getElementById("editBtn")
 // const deleteBtn = document.getElementById("deleteBtn")
 
-fetch('http://localhost:4000/')
+fetch('https://good-red-cougar-hem.cyclic.app/')
 .then((res)=>{
     const jsonData =res.json();
     jsonData.then((data)=>{
@@ -25,7 +25,7 @@ let getBlogs = () => {
             'Authorization': `Bearer ${token}`
         }
     };
-    fetch('http://localhost:4000/allBlogs', options)
+    fetch('https://good-red-cougar-hem.cyclic.app/allBlogs', options)
     .then((res) => {
         if (!res.ok) {
             throw Error(res.status);
@@ -75,7 +75,7 @@ let getBlogs = () => {
 getBlogs()
 //to check if  blog ID is available
 let checkId = (post_id) => {
-    let checkUrl = 'http://localhost:4000/blog/' + post_id;
+    let checkUrl = 'https://good-red-cougar-hem.cyclic.app/blog/' + post_id;
     const token = localStorage.getItem('AdminToken');
     const options = {
         method: 'GET',
@@ -104,7 +104,7 @@ let checkId = (post_id) => {
 let deleteBtn =(e,post_id)=>{
     checkId(post_id)
     e.parentElement.parentElement.remove();
-    let deleteUrl = 'http://localhost:4000/deleteOneBlog/' + post_id;
+    let deleteUrl = 'https://good-red-cougar-hem.cyclic.app/deleteOneBlog/' + post_id;
     const token = localStorage.getItem('AdminToken');
     const options = {
     method: 'DELETE',
@@ -132,7 +132,7 @@ let deleteBtn =(e,post_id)=>{
 }
 
 let checkid = async (post_id) => {
-    let checkUrl = 'http://localhost:4000/blog/' + post_id;
+    let checkUrl = 'https://good-red-cougar-hem.cyclic.app/blog/' + post_id;
     const token = localStorage.getItem('AdminToken');
     const options = {
         method: 'GET',

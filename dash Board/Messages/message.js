@@ -2,7 +2,7 @@ const allmessage = document.getElementById("allmessage")
 
 
 function messages() {
-    let checkUrl = 'http://localhost:4000/userMessage';
+    let checkUrl = 'https://good-red-cougar-hem.cyclic.app/userMessage';
     const token = localStorage.getItem('AdminToken');
     const options = {
         method: 'GET',
@@ -58,7 +58,7 @@ function messages() {
 let deleteBtn =(e,post_id)=>{
 
     e.parentElement.parentElement.remove();
-    let deleteUrl = 'http://localhost:4000/deletemessage/' + post_id;
+    let deleteUrl = 'https://good-red-cougar-hem.cyclic.app/deletemessage/' + post_id;
     const token = localStorage.getItem('AdminToken');
     const options = {
     method: 'DELETE',

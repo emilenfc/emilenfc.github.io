@@ -16,7 +16,7 @@ console.log(content)
                 'Authorization': `Bearer ${token}`
             }
         };
-        fetch('http://localhost:4000/allBlogs', options)
+        fetch('https://good-red-cougar-hem.cyclic.app/allBlogs', options)
         .then((res) => {
             if (!res.ok) {
                 throw Error(res.status);
@@ -117,7 +117,7 @@ console.log(content)
                 body: JSON.stringify(user_message)
             };
             console.log(createMessage.body)
-            fetch('http://localhost:4000/subscribe', createMessage)
+            fetch('https://good-red-cougar-hem.cyclic.app/subscribe', createMessage)
                 .then(async (data) => {
                     //console.log(data)
                     const res = await data.json()

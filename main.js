@@ -93,7 +93,7 @@ const signUP_btn_error = document.getElementById("signUp-error")
 
 
 
-fetch('http://localhost:4000/')
+fetch('https://good-red-cougar-hem.cyclic.app/')
 .then((res)=>{
     const jsonData =res.json();
     jsonData.then((data)=>{
@@ -123,7 +123,7 @@ let createAccount =async  (firstName, secondName, phone, email, password) => {
         body: JSON.stringify(mine),
         };
         console.log(signUP)
-     fetch('http://localhost:4000/signUp', signUP)
+     fetch('https://good-red-cougar-hem.cyclic.app/signUp', signUP)
      .then(async (data) => {
         const res = await data.json()
 
@@ -168,7 +168,7 @@ let login = (email, password) => {
         body: JSON.stringify(mine),
         };
         console.log(signIN)
-     fetch('http://localhost:4000/login', signIN)
+     fetch('https://good-red-cougar-hem.cyclic.app/login', signIN)
      .then(async (data) => {
         const res = await data.json()
 
@@ -212,7 +212,7 @@ let adminlogin = (email, password) => {
         body: JSON.stringify(mine),
         };
         console.log(signIN)
-     fetch('http://localhost:4000/adminLogin', signIN)
+     fetch('https://good-red-cougar-hem.cyclic.app/adminLogin', signIN)
      .then(async (data) => {
         const res = await data.json()
 
@@ -280,7 +280,7 @@ logout.addEventListener("dblclick", function(e){
             body: JSON.stringify(user_message)
         };
         console.log(createMessage.body)
-        fetch('http://localhost:4000/sendMessage', createMessage)
+        fetch('https://good-red-cougar-hem.cyclic.app/sendMessage', createMessage)
             .then(async (data) => {
                 //console.log(data)
                 const res = await data.json()

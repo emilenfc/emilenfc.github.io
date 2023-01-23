@@ -2,7 +2,7 @@ let comment_el = document.getElementById("comment_el")
 
 
 function messages() {
-    let checkUrl = 'http://localhost:4000/getAllCommetsofAllBlogs';
+    let checkUrl = 'https://good-red-cougar-hem.cyclic.app/getAllCommetsofAllBlogs';
     const token = localStorage.getItem('AdminToken');
     const options = {
         method: 'GET',

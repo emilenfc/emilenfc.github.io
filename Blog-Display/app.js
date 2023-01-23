@@ -2,7 +2,7 @@
 const blogId = localStorage.getItem("clicked_blog_id")
 console.log(blogId)
 let checkId = (post_id) => {
-    let checkUrl = 'http://localhost:4000/blog/' + post_id;
+    let checkUrl = 'https://good-red-cougar-hem.cyclic.app/blog/' + post_id;
     const token = localStorage.getItem('AdminToken');
     const options = {
         method: 'GET',
@@ -132,7 +132,7 @@ function sharePage() {
 
 
                 function displayAllcomments(blogid) {
-                    let checkUrl = 'http://localhost:4000/blogComments/' + blogid;
+                    let checkUrl = 'https://good-red-cougar-hem.cyclic.app/blogComments/' + blogid;
                     const token = localStorage.getItem('AdminToken');
                     const options = {
                         method: 'GET',
@@ -206,7 +206,7 @@ function sharePage() {
                         body: JSON.stringify(comment)
                     };
                     console.log(createComment)
-                    fetch('http://localhost:4000/comments/' + blogId, createComment)
+                    fetch('https://good-red-cougar-hem.cyclic.app/comments/' + blogId, createComment)
                         .then(async (data) => {
                             const res = await data.json()
                             alert(res.message ="login first");
@@ -238,7 +238,7 @@ function sharePage() {
                         },
 
                     };
-                    fetch('http://localhost:4000/like/' + blogId, createlike)
+                    fetch('https://good-red-cougar-hem.cyclic.app/like/' + blogId, createlike)
                         .then(async (data) => {
                             const res = await data.json()
                             console.log(data)

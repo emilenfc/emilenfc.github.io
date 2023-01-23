@@ -1,7 +1,7 @@
 const table_el = document.getElementById("table_el")
 
 function messages() {
-    let checkUrl = 'http://localhost:4000/getAllUsers';
+    let checkUrl = 'https://good-red-cougar-hem.cyclic.app/getAllUsers';
     const token = localStorage.getItem('AdminToken');
     const options = {
         method: 'GET',
@@ -46,7 +46,7 @@ let deleteBtn = (e,x,post_id) => {
     if(confirm(`Are you sure you want to delete ${x}?`)) {
     e.target.parentElement.parentElement.parentElement.remove(); 
    
-    let deleteUrl = 'http://localhost:4000/deleteOneUser/' + post_id;
+    let deleteUrl = 'https://good-red-cougar-hem.cyclic.app/deleteOneUser/' + post_id;
     const token = localStorage.getItem('AdminToken');
     const options = {
         method: 'DELETE',

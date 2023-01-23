@@ -55,7 +55,7 @@ let createBlog = (title, author, image, text, Time) => {
         body: JSON.stringify(blog)
     };
     console.log(createBlog)
-    fetch('http://localhost:4000/createBlog', createBlog)
+    fetch('https://good-red-cougar-hem.cyclic.app/createBlog', createBlog)
     .then(async (data) => {
    const res = await data.json()
         console.log(res);
@@ -136,7 +136,7 @@ const updateBlog = ()=>{
                 text: updateText
             })
         };
-        fetch(`http://localhost:4000/updateBlog/${post_id}`, options)
+        fetch(`https://good-red-cougar-hem.cyclic.app/updateBlog/${post_id}`, options)
         .then((res) => {
             
             if (!res.ok) {

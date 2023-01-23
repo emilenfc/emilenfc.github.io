@@ -6,7 +6,7 @@ let data = null;
 let comments_El = null;
 
 const fetchBlogData = async () => {
-    data = await (await fetch(`http://localhost:4000/blog/${blogId}`)).json();
+    data = await (await fetch(`https://good-red-cougar-hem.cyclic.app/blog/${blogId}`)).json();
     comments_El = data.comments;
     console.log(data.title)
     const {title,author,time,text} = data;
